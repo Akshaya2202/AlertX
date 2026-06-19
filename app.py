@@ -14,6 +14,10 @@ from reportlab.pdfgen import canvas
 from yolo_model.detector import detect_video
 
 app = Flask(__name__)
+import os
+
+os.makedirs("static/uploads", exist_ok=True)
+os.makedirs("static/reports", exist_ok=True)
 
 UPLOAD_FOLDER = "static/uploads"
 
