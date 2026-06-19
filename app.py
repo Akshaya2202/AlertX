@@ -80,7 +80,15 @@ def get_dashboard_stats():
     )
 
     cursor = conn.cursor()
-
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS logs(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        filename TEXT,
+        alert TEXT,
+        time TEXT
+    )
+    """)
+    conn.commit()
     cursor.execute(
         "SELECT COUNT(*) FROM logs"
     )
@@ -129,6 +137,16 @@ def get_system_status():
     )
 
     cursor = conn.cursor()
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS logs(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        filename TEXT,
+        alert TEXT,
+        time TEXT
+    )
+    """)
+
+    conn.commit()
 
     cursor.execute(
 
